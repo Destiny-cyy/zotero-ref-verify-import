@@ -1,0 +1,37 @@
+{
+  "_readme": "示例配置模板（全部为占位符/虚构值，不含任何真实文献、路径或账号）。复制为 config.json 后按你的项目填写；所有路径用绝对路径。citation_plan 与 key_to_itemkey 由 S2/S3 生成，不要手猜。",
+  "python": "<PYTHON_ABSOLUTE_PATH>/python.exe",
+  "source_docx": "<WORKDIR>/manuscript.docx",
+  "deliver_docx": "<WORKDIR>/manuscript_zotero.docx",
+  "verify_copy_docx": "<WORKDIR>/manuscript_verify_copy.docx",
+  "api_base": "http://127.0.0.1:23119",
+  "user_id": 0,
+  "_user_id_note": "本机 library id（个人库通常为 0，群组库可能不同）。用 GET /api/users/<id>/items?limit=1&format=json 返回的 library 对象确认，勿凭印象写死。",
+  "style": "<已安装样式的文件名，不含 .csl 后缀>",
+  "language": "zh",
+  "_style_note": "格式/样式属决策门 D0，执行前必须先问用户。默认建议：中文稿→GB/T 7714 顺序编码制，英文稿→APA 7；按文章语言判定，不按被引文献语言。",
+  "cid_prefix": "CITE",
+  "_cid_prefix_note": "citationID 前缀，任意不含空格的标识；勿使用真实项目缩写以免泄露。",
+  "sentence_end": "。",
+  "_sentence_end_note": "句末标点，用于定位插入点。中文稿用「。」，英文稿改为「.」。",
+  "title_verbatim": false,
+  "_title_verbatim_note": "true=著录缺陷(断字/双重转义)原样保留不润色；false=按体例规范化。默认 false；若项目体例要求逐字保留 PDF 原文标题，改 true 并在执行卡说明。",
+  "citation_plan": [
+    {"para": 5,  "seq": 1, "num": 1, "key": "REF-EXAMPLE-A", "itemkey": "ITEMKEY01", "cid": "C01"},
+    {"para": 13, "seq": 2, "num": 2, "key": "REF-EXAMPLE-B", "itemkey": "ITEMKEY02", "cid": "C02"}
+  ],
+  "_plan_note": "虚构示意，仅为展示字段结构。真实表由 S2（映射）+ S3（定位）生成：para=段号(1-based)，seq=引用点序号，num=著录编号(同一文献复用同一 num)，key=[REF:] 占位符键，itemkey=Zotero 条目 key，cid=审计 ID。",
+  "key_to_itemkey": {
+    "REF-EXAMPLE-A": "ITEMKEY01",
+    "REF-EXAMPLE-B": "ITEMKEY02"
+  },
+  "doubt_paras": [],
+  "_doubt_note": "需要文献支撑但无占位符的段落号(1-based)，仅登记存疑、不新增引用点。",
+  "high_risk_cids": [],
+  "_risk_note": "证据偏弱/仅背景支持的引用点 cid，需在存疑清单列为高风险并逐项请用户裁决。",
+  "evidence": {
+    "_comment": "处级(按引用点)与键级(按唯一键)证据分开统计，勿混淆；数值由你的证据核验材料填写，示例为占位。",
+    "per_citation": {"direct": 0, "partial": 0, "background": 0},
+    "per_key": {"direct": 0, "partial": 0, "background": 0}
+  }
+}
