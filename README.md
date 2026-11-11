@@ -36,7 +36,7 @@
 
 两者可串联：**先导入 → 再核实 → 最后独立审核收口**。
 
-### 「活引用」是什么（大白话）
+### 「活引用」是什么
 
 - **死引用**：把 `[1]` 当文字打上去。以后在 Zotero 里改了资料，Word 里不会跟着变。
 - **活引用**：插入的是「带芯片的引用」——每个引用记住自己对应 Zotero 里哪一条文献。以后改了文献信息、或在 Word 点一下 `Refresh`，编号和文末清单会自动重排更新。
@@ -48,8 +48,7 @@
 - 想把本地 Zotero 库的条目挂进文稿，或想核对已有引用的一致性。
 - 完全**离线**工作，不需要联网、不需要 API key。脚本只读取 Zotero Local API，不修改 Zotero 文献库，也不读取任何凭据。
 
-### 不适用（如实说明，别硬套）
-
+### 不适用
 | 场景 | 为什么不行 |
 |---|---|
 | 纯 LaTeX / `.tex`、Markdown、Google Docs、网页 | Zotero 的「域代码」是 Word/OOXML 特有的，本 skill 只写 `.docx` 里的域 |
@@ -118,8 +117,7 @@ python scripts/zotero_citation.py --config assets/config.json build --apply   # 
 
 ---
 
-## 4. 目录结构（每个文件干嘛、何时读）
-
+## 4. 目录结构
 ```
 zotero-ref-verify-import/
 ├── SKILL.md                     入口：工作纪律、决策门、技术事实、默认约定、L1–L4、S1–S7、停止条件
